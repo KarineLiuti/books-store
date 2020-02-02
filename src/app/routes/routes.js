@@ -14,15 +14,6 @@ module.exports = (app) => {
   })
   
   app.get('/livros', (req, res) => {
-    res.send(`
-        <html>
-            <head>
-                <meta charset="utf-8">
-            </head>
-            <body>
-                <h1> Listagem de livros </h1>
-            </body>
-        </html>
-    `)
+    res.marko(require('../views/list/list.marko'))
   })
 }
