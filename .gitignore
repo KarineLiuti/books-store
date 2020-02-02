@@ -102,3 +102,6 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Marko
+/src/app/views/list/list.marko.js
