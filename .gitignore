@@ -105,3 +105,6 @@ dist
 
 # Marko
 /src/app/views/list/list.marko.js
+
+# Dinamic Database
+data.db
