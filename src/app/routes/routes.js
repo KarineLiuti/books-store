@@ -17,14 +17,15 @@ module.exports = (app) => {
   
   app.get('/books', (req, res) => {
     const booksDao = new BooksDao(db);
-
-    booksDao.list((err, result) => {
-      res.marko(
-        require('../views/list/list.marko'),
-        {
-          books: result
-        }
-      )
-    });
+    booksDao.list()
+      .then(books => {
+        return res.marko(
+          require('../views/list/list.marko'),
+          {
+            books
+          }
+        )
+      })
+      .catch(error => console.error(error));
   })
 }

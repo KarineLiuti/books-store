@@ -5,9 +5,14 @@ class BooksDao {
   }
 
   list(callback) {
-    return this._db.all('SELECT * FROM LIVROS', (err, result) => {
-      return callback(err, result);
+    return new Promise((resolve, reject) => {
+      this._db.all('SELECT * FROM LIVROS', (err, result) => {
+        if(err) return reject("Ops! We got a problem to list your books.")
+
+        return resolve(result);
+      })
     })
+    
   }
 }
 
