@@ -12,7 +12,6 @@
   "dependencies": {
     "express": "4.16.3",
     "marko": "4.13.4-1",
-    "sqlite": "^4.0.7",
     "sqlite3": "4.0.2"
   }
 }
