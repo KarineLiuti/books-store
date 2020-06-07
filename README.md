@@ -18,4 +18,4 @@ My goal here is no learn more about this technology.
 
 ### Run project
 
-`node server.js`
+`npm start`
