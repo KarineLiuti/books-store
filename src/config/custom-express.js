@@ -4,6 +4,11 @@ require('marko/express');
 const express = require('express');
 const app = express();
 
+var bodyParser = require('body-parser')
+var urlencodedParser = bodyParser.urlencoded({ extended: true })
+
+app.use(urlencodedParser)
+
 const routes = require('../app/routes/routes');
 routes(app);
 
