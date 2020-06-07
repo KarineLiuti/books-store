@@ -15,6 +15,26 @@ class BooksDao {
 
   }
 
+  searchById(id) {
+    console.log('metod', id)
+    return new Promise((resolve, reject) => {
+      this._db.get(`
+            SELECT * FROM LIVROS WHERE id = ?
+            `,
+            [id],
+        function (error, results, fields) {
+          if (error) {
+            console.log(error);
+            return reject('Ops! We had an error to search this id. Please try again.');
+          }
+          console.log('results', results)
+          resolve(results);
+        }
+      )
+    })
+
+  }
+
   add(book) {
     return new Promise((resolve, reject) => {
       this._db.run(`
@@ -31,7 +51,6 @@ class BooksDao {
         ],
         function (err) {
           if (err) {
-            console.log(err);
             return reject('Ops! We had an erroe to register this book. Please try again.');
           }
           resolve();

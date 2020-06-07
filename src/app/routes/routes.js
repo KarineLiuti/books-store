@@ -29,12 +29,26 @@ module.exports = (app) => {
       .catch(error => console.error(error));
   })
 
+  app.get('/books/:id', (req, res) => {
+    const booksDao = new BooksDao(db);
+    booksDao.searchById(req.params.id)
+      .then(books => {
+        books = [books]
+        return res.marko(
+          require('../views/list/list.marko'),
+          {
+            books
+          }
+        )
+      })
+      .catch(error => console.error(error));
+  })
+
   app.get('/books/form', function(req, resp) {
     resp.marko(require('../views/books/form/form.marko'))
   });
 
   app.post('/books', function(req, resp) {
-    console.log(req.body);
     const booksDao = new BooksDao(db);
     booksDao.add(req.body)
       .then(
