@@ -32,7 +32,6 @@ class BooksDao {
         }
       )
     })
-
   }
 
   add(book) {
@@ -57,6 +56,29 @@ class BooksDao {
         }
       )
     });
+  }
+
+  update(book) {
+    return new Promise((resolve, reject) => {
+      this._db.run(`
+        UPDATE LIVROS SET
+        titulo = ?,
+        preco = ?,
+        descricao = ?
+        WHERE id = ?
+      `, [
+        book.titulo,
+        book.preco,
+        book.descricao,
+        book.id
+      ],
+      err => {
+        if(err) {
+          return reject('Ops! We had an erroe to register this book. Please try again.');
+        }
+      })
+      return resolve()
+    })
   }
 }
 

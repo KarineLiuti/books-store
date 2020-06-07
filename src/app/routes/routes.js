@@ -56,4 +56,13 @@ module.exports = (app) => {
       )
       .catch(error => console.error(error));
   });
+
+  app.post('/books/update', function(req, resp) {
+    const booksDao = new BooksDao(db);
+    booksDao.update(req.body)
+      .then(
+        resp.redirect('/books')
+      )
+      .catch(error => console.error(error));
+  });
 }
