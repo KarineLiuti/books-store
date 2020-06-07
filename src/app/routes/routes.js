@@ -34,12 +34,12 @@ module.exports = (app) => {
   });
 
   app.post('/books', function(req, resp) {
-    console.log(req)
-    // const booksDao = new BooksDao(db);
-    // booksDao.add()
-    //   .then(books => {
-    //     console.log('books')
-    //   })
-    //   .catch(error => console.error(error));
+    console.log(req.body);
+    const booksDao = new BooksDao(db);
+    booksDao.add(req.body)
+      .then(
+        resp.redirect('/books')
+      )
+      .catch(error => console.error(error));
   });
 }
