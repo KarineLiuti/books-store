@@ -19,11 +19,11 @@ function render(input, out, __component, component, state) {
 
   component_globals_tag({}, out);
 
-  out.w("<h1>Books Register</h1><form action=\"/books\" method=\"post\"><div><label for=\"id\">Id:</label><input id=\"id\" name=\"id\" type=\"text\" placeholder=\"keep it empty to register new\"></div><div><label for=\"title\">Title:</label><input type=\"text\" id=\"title\" name=\"title\" placeholder=\"input title\"></div><div><label for=\"price\">Price:</label><input type=\"text\" id=\"price\" name=\"price\" placeholder=\"150.25\"></div><div><label for=\"description\">Description:</label><textarea cols=\"20\" rows=\"10\" id=\"description\" name=\"description\" placeholder=\"talk about the book\"></textarea></div><input type=\"submit\" value=\"Salvar\"></form>");
+  out.w("<h1>Books Register</h1><form action=\"/books\" method=\"post\"><input type=\"hidden\" id=\"id\" name=\"id\"><div><label for=\"title\">Title:</label><input type=\"text\" id=\"title\" name=\"title\" placeholder=\"input title\"></div><div><label for=\"price\">Price:</label><input type=\"text\" id=\"price\" name=\"price\" placeholder=\"150.25\"></div><div><label for=\"description\">Description:</label><textarea cols=\"20\" rows=\"10\" id=\"description\" name=\"description\" placeholder=\"talk about the book\"></textarea></div><input type=\"submit\" value=\"Salvar\"></form>");
 
   init_components_tag({}, out);
 
-  await_reorderer_tag({}, out, __component, "17");
+  await_reorderer_tag({}, out, __component, "15");
 
   out.w("</body></html>");
 }

@@ -1,12 +1,12 @@
 <html>
 
 <body>
-  <h1>Books Register</h1>
+  <h1>Books Update</h1>
 
   <form action="/books/update" method="post">
     <div>
       <label for="id">Id:</label>
-      <input id="id" name="id" type="text" placeholder="keep it empty to register new" />
+      <input id="id" name="id" type="text" placeholder="whats the book id?" />
     </div>
 
     <div>
@@ -23,6 +23,16 @@
     </div>
 
     <input type="submit" value="Salvar" />
+  </form>
+  <br >
+
+  <h1>Delete Book</h1>
+  <form action="/books/delete" method="post">
+    <div>
+      <label for="id">Id:</label>
+      <input id="id" name="id" type="text" placeholder="What's id do you want delete?" />
+    </div>
+    <input type="submit" value="DELETE" />
   </form>
 </body>
 

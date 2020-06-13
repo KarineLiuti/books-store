@@ -80,6 +80,23 @@ class BooksDao {
       return resolve()
     })
   }
+
+  delete(bookId) {
+    return new Promise((resolve, reject) => {
+      this._db.run(`
+        DELETE FROM LIVROS 
+        WHERE id = ?
+      `, [
+        bookId
+      ],
+      err => {
+        if(err) {
+          return reject('Ops! We had an erroe to delete this book. Please try again.');
+        }
+      })
+      return resolve()
+    })
+  }
 }
 
 module.exports = BooksDao;

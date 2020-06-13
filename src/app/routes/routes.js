@@ -44,7 +44,7 @@ module.exports = (app) => {
       .catch(error => console.error(error));
   })
 
-  app.get('/books/form', function(req, resp) {
+  app.get('/books/register', function(req, resp) {
     resp.marko(require('../views/books/form/form.marko'))
   });
 
@@ -62,9 +62,19 @@ module.exports = (app) => {
   });
 
   app.post('/books/update', function(req, resp) {
-    console.log("UPDATE: ", req.body)
+    console.log("UPDATE book: ", req.body)
     const booksDao = new BooksDao(db);
     booksDao.update(req.body)
+      .then(
+        resp.redirect('/books')
+      )
+      .catch(error => console.error(error));
+  });
+
+  app.post('/books/delete', function(req, resp) {
+    console.log("DELETE book: ", req.body)
+    const booksDao = new BooksDao(db);
+    booksDao.delete(req.body.id)
       .then(
         resp.redirect('/books')
       )
