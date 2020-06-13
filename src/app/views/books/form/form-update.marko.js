@@ -2,7 +2,7 @@
 "use strict";
 
 var marko_template = module.exports = require("marko/src/html").t(__filename),
-    marko_componentType = "/casadocodigo$1.0.0/src/app/views/books/form/form.marko",
+    marko_componentType = "/casadocodigo$1.0.0/src/app/views/books/form/form-update.marko",
     components_helpers = require("marko/src/components/helpers"),
     marko_renderer = components_helpers.r,
     marko_defineComponent = components_helpers.c,
@@ -19,7 +19,7 @@ function render(input, out, __component, component, state) {
 
   component_globals_tag({}, out);
 
-  out.w("<h1>Books Register</h1><form action=\"/books\" method=\"post\"><div><label for=\"id\">Id:</label><input id=\"id\" name=\"id\" type=\"text\" placeholder=\"keep it empty to register new\"></div><div><label for=\"title\">Title:</label><input type=\"text\" id=\"title\" name=\"title\" placeholder=\"input title\"></div><div><label for=\"price\">Price:</label><input type=\"text\" id=\"price\" name=\"price\" placeholder=\"150.25\"></div><div><label for=\"description\">Description:</label><textarea cols=\"20\" rows=\"10\" id=\"description\" name=\"description\" placeholder=\"talk about the book\"></textarea></div><input type=\"submit\" value=\"Salvar\"></form>");
+  out.w("<h1>Books Register</h1><form action=\"/books/update\" method=\"post\"><div><label for=\"id\">Id:</label><input id=\"id\" name=\"id\" type=\"text\" placeholder=\"keep it empty to register new\"></div><div><label for=\"title\">Title:</label><input type=\"text\" id=\"title\" name=\"title\" placeholder=\"input title\"></div><div><label for=\"price\">Price:</label><input type=\"text\" id=\"price\" name=\"price\" placeholder=\"150.25\"></div><div><label for=\"description\">Description:</label><textarea cols=\"20\" rows=\"10\" id=\"description\" name=\"description\" placeholder=\"talk about the book\"></textarea></div><input type=\"submit\" value=\"Salvar\"></form>");
 
   init_components_tag({}, out);
 
@@ -36,7 +36,7 @@ marko_template._ = marko_renderer(render, {
 marko_template.Component = marko_defineComponent({}, marko_template._);
 
 marko_template.meta = {
-    id: "/casadocodigo$1.0.0/src/app/views/books/form/form.marko",
+    id: "/casadocodigo$1.0.0/src/app/views/books/form/form-update.marko",
     tags: [
       "marko/src/components/taglib/component-globals-tag",
       "marko/src/components/taglib/init-components-tag",

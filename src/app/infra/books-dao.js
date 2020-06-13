@@ -67,9 +67,9 @@ class BooksDao {
         descricao = ?
         WHERE id = ?
       `, [
-        book.titulo,
-        book.preco,
-        book.descricao,
+        book.title,
+        book.price,
+        book.description,
         book.id
       ],
       err => {

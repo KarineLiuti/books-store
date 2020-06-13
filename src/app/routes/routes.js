@@ -29,7 +29,7 @@ module.exports = (app) => {
       .catch(error => console.error(error));
   })
 
-  app.get('/books/:id', (req, res) => {
+  app.get('/books/find/:id', (req, res) => {
     const booksDao = new BooksDao(db);
     booksDao.searchById(req.params.id)
       .then(books => {
@@ -48,6 +48,10 @@ module.exports = (app) => {
     resp.marko(require('../views/books/form/form.marko'))
   });
 
+  app.get('/books/update', function(req, resp) {
+    resp.marko(require('../views/books/form/form-update.marko'))
+  });
+
   app.post('/books', function(req, resp) {
     const booksDao = new BooksDao(db);
     booksDao.add(req.body)
@@ -58,6 +62,7 @@ module.exports = (app) => {
   });
 
   app.post('/books/update', function(req, resp) {
+    console.log("UPDATE: ", req.body)
     const booksDao = new BooksDao(db);
     booksDao.update(req.body)
       .then(
