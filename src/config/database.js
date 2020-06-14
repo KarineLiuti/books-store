@@ -16,7 +16,7 @@ INSERT INTO usuarios (
     nome_completo, 
     email,
     senha
-) SELECT 'Gabriel Leite', 'gabriel@alura.com.br', '123' WHERE NOT EXISTS (SELECT * FROM usuarios WHERE email = 'gabriel@alura.com.br')
+) SELECT 'Karine Liuti', 'karine.liuti@gmail.com', '123' WHERE NOT EXISTS (SELECT * FROM usuarios WHERE email = 'karine.liuti@gmail.com')
 `;
 
 const LIVROS_SCHEMA = 
@@ -35,7 +35,7 @@ INSERT INTO livros (
     titulo,
     preco,
     descricao
-) SELECT 'Node na prática', 30.0, 'Como desenvolver com Node.' WHERE NOT EXISTS (SELECT * FROM livros WHERE titulo = 'Node na prática')
+) SELECT 'Practicing Node', 30.0, 'How to make systems using Node.js' WHERE NOT EXISTS (SELECT * FROM livros WHERE titulo = 'Practicing Node')
 `;
 
 const INSERIR_LIVRO_2 = 
@@ -44,7 +44,7 @@ INSERT INTO livros (
     titulo, 
     preco,
     descricao
-) SELECT 'JavaScript na prática', 40.0, 'Como desenvolver com JavaScript.' WHERE NOT EXISTS (SELECT * FROM livros WHERE titulo = 'JavaScript na prática')
+) SELECT 'Practicing Javascript', 40.0, 'How can we develop sytems using JavaScript?' WHERE NOT EXISTS (SELECT * FROM livros WHERE titulo = 'Practicing Javascript')
 `;
 
 bd.serialize(() => {
