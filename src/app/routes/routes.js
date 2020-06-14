@@ -61,7 +61,6 @@ module.exports = (app) => {
   });
 
   app.post('/books/update', function(req, resp) {
-    console.log("UPDATE book: ", req.body)
     const booksDao = new BooksDao(db);
     booksDao.update(req.body)
       .then(
@@ -71,7 +70,6 @@ module.exports = (app) => {
   });
 
   app.post('/books/delete', function(req, resp) {
-    console.log("DELETE book: ", req.body)
     const booksDao = new BooksDao(db);
     booksDao.delete(req.body.id)
       .then(
@@ -86,6 +84,6 @@ module.exports = (app) => {
     const booksDao = new BooksDao(db);
     booksDao.delete(id)
     .then(() => resp.status(200).end())
-    .catch(erro => console.log(erro));
+    .catch(err => console.error(err));
 });
 }
