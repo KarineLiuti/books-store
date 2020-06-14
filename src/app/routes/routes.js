@@ -32,12 +32,12 @@ module.exports = (app) => {
   app.get('/books/find/:id', (req, res) => {
     const booksDao = new BooksDao(db);
     booksDao.searchById(req.params.id)
-      .then(books => {
-        books = [books]
+      .then(book => {
+        console.log('BOOK: ', book)
         return res.marko(
-          require('../views/list/list.marko'),
+          require('../views/books/form/form.marko'),
           {
-            books
+            book
           }
         )
       })
