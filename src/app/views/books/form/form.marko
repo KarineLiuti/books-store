@@ -3,9 +3,12 @@
 <body>
   <h1>Books Register</h1>
 
+  <h2>${data.book.id}</h2>
   <form action="/books" method="post">
-
-    <input type="hidden" id="id" name="id" />
+    <div if(data.book.id)>
+      <input type="hidden" name="_method" value="put">
+      <input type="hidden" id="id" name="id" value="${data.book.id}" />
+    </div>
 
     <div>
       <label for="title">Title:</label>

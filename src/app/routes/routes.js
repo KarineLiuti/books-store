@@ -29,13 +29,16 @@ module.exports = (app) => {
       .catch(error => console.error(error));
   })
 
+  app.get('/books/register', function(req, resp) {
+    resp.marko(require('../views/books/form/form.marko'), { book: {} })
+  });
+
   app.get('/books/find/:id', (req, res) => {
     const booksDao = new BooksDao(db);
     booksDao.searchById(req.params.id)
       .then(book => {
-        console.log('BOOK: ', book)
         return res.marko(
-          require('../views/books/form/form.marko'),
+          require('../views/books/form/form-update.marko'),
           {
             book
           }
@@ -43,10 +46,6 @@ module.exports = (app) => {
       })
       .catch(error => console.error(error));
   })
-
-  app.get('/books/register', function(req, resp) {
-    resp.marko(require('../views/books/form/form.marko'))
-  });
 
   app.get('/books/update', function(req, resp) {
     resp.marko(require('../views/books/form/form-update.marko'))
