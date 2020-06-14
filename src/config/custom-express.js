@@ -5,6 +5,8 @@ const express = require('express');
 const app = express();
 
 var bodyParser = require('body-parser')
+app.use('/static', express.static('src/app/public/'))
+
 var urlencodedParser = bodyParser.urlencoded({ extended: true })
 
 app.use(urlencodedParser)

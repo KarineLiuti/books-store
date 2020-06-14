@@ -80,4 +80,13 @@ module.exports = (app) => {
       )
       .catch(error => console.error(error));
   });
+
+  app.delete('/books/delete/:id', function(req, resp) {
+    const id = req.params.id;
+
+    const booksDao = new BooksDao(db);
+    booksDao.delete(id)
+    .then(() => resp.status(200).end())
+    .catch(erro => console.log(erro));
+});
 }
