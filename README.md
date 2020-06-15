@@ -7,24 +7,20 @@ My goal here is to learn more about this technology.
 
 ## Run
 
-### Install Nodemon Globally
+#### Install Nodemon Globally
 `npm install -g nodemon`
 
-### Install dependencies
-
+#### Install dependencies
 `npm install`
 
 
-
-### Run project
-
+#### Run project
 `npm start`
 
 
 ## Books
-
-### List
+#### List
 `http://localhost:3000/books`
 
-### Register
+#### Register
 `http://localhost:3000/books/register`
