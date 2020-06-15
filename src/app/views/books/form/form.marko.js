@@ -26,7 +26,7 @@ function render(input, out, __component, component, state) {
     "</h2><form action=\"/books\" method=\"post\">");
 
   if (data.book.id) {
-    out.w("<div><input type=\"hidden\" name=\"_method\" value=\"PUT\"><input type=\"hidden\" id=\"id\" name=\"id\" value=\"" +
+    out.w("<div><input type=\"hidden\" name=\"_method\" value=\"put\"><input type=\"hidden\" id=\"id\" name=\"id\" value=\"" +
       marko_escapeXmlAttr(data.book.id) +
       "\"></div>");
   }
